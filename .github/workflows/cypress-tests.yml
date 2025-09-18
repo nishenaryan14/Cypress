@@ -1,0 +1,58 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x] # Supports both versions
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Cypress
+        run: npx cypress install
+
+      - name: Run Cypress tests
+        run: npx cypress run --spec cypress/e2e/17-09 --browser chrome --headless
+
+      - name: Generate HTML report
+        run: |
+          npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json
+          npx marge cypress/reports/report.json -f report -o cypress/reports/html
+
+      - name: Upload screenshots (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - name: Upload videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Upload HTML reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-reports
+          path: cypress/reports/html

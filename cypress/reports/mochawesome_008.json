@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-18T04:32:08.516Z",
+    "end": "2025-09-18T04:32:13.631Z",
+    "duration": 5115,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2d758b41-ec3d-46df-958f-4174c55d9089",
+      "title": "",
+      "fullFile": "cypress\\e2e\\17-09\\saucedemologin.cy.js",
+      "file": "cypress\\e2e\\17-09\\saucedemologin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9b9706fa-2ca7-41ca-808a-311e977aeafa",
+          "title": "Sauce Demo login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login with custom command",
+              "fullTitle": "Sauce Demo login should login with custom command",
+              "timedOut": null,
+              "duration": 2862,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.loginSauce('standard_user', 'secret_sauce', 'https://www.saucedemo.com/');\ncy.url().should('include', '/inventory.html');",
+              "err": {},
+              "uuid": "c830a2d3-b7f5-4847-bac4-b6a294001956",
+              "parentUUID": "9b9706fa-2ca7-41ca-808a-311e977aeafa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c830a2d3-b7f5-4847-bac4-b6a294001956"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2862,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "inlineAssets": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

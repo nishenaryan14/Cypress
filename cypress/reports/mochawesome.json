@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-18T04:29:12.241Z",
+    "end": "2025-09-18T04:29:25.723Z",
+    "duration": 13482,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7364395d-7fac-4d07-a899-6329f762959f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\17-09\\AdvancedCypress.cy.js",
+      "file": "cypress\\e2e\\17-09\\AdvancedCypress.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "465d3ecd-6c08-4bf0-aca8-f38c5593f82c",
+          "title": "Orange HRM login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login with custom command",
+              "fullTitle": "Orange HRM login should login with custom command",
+              "timedOut": null,
+              "duration": 9559,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('Admin', 'admin123', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');\ncy.url().should('include', '/dashboard');",
+              "err": {},
+              "uuid": "59b34905-f737-4349-b9fb-9fab26d919ed",
+              "parentUUID": "465d3ecd-6c08-4bf0-aca8-f38c5593f82c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "59b34905-f737-4349-b9fb-9fab26d919ed"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9559,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "inlineAssets": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

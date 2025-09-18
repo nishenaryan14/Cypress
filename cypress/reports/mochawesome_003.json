@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-18T04:30:28.448Z",
+    "end": "2025-09-18T04:31:02.794Z",
+    "duration": 34346,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6d32f8b-1a6b-41bd-ae96-242b3536d4aa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\17-09\\corecypress.cy.js",
+      "file": "cypress\\e2e\\17-09\\corecypress.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3d110c85-23b6-495b-8093-18e85b0c0f75",
+          "title": "Cypress Core Commands",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test 1: SauceDemo - Login, Navigation, and Product Interaction",
+              "fullTitle": "Cypress Core Commands Test 1: SauceDemo - Login, Navigation, and Product Interaction",
+              "timedOut": null,
+              "duration": 13337,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\ncy.wait(5000);\n// Login\ncy.get('[data-test=\"username\"]').clear().type('standard_user').should('have.value', 'standard_user');\ncy.get('[data-test=\"password\"]').clear().type('secret_sauce');\ncy.wait(500);\ncy.get('[data-test=\"login-button\"]').click();\ncy.wait(1000);\n// Navigation and Control\ncy.log('Checking Navigation and Control');\ncy.get('.shopping_cart_link').click();\ncy.screenshot('cart page');\ncy.wait(1000);\ncy.go('back');\ncy.wait(1000);\ncy.viewport(1200, 800);\ncy.viewport(800, 500);\n// Querying and Finding Elements\ncy.log('Querying and Finding Elements');\ncy.get('.bm-menu-wrap').should('exist');\ncy.xpath('//*[@id=\"item_4_title_link\"]/div').contains('Sauce Labs');\ncy.get('#item_4_title_link').find('.inventory_item_name');\ncy.get('[data-test=\"inventory-item-name\"]').first();\ncy.get('[data-test=\"inventory-item-name\"]').last();\n// User Actions\ncy.log('Checking User Actions');\ncy.get('.product_sort_container').select('Price (low to high)');\ncy.xpath('//*[@id=\"item_1_title_link\"]/div').trigger('mouseover');\n// Network Request with Fixture\ncy.log('Intercepting Network Request with Fixture');\ncy.fixture('postData.json').then(mockData => {\n  cy.intercept('GET', 'https://dummyjson.com/posts/1', {\n    statusCode: 200,\n    body: mockData\n  }).as('mockedPost');\n});\n// Command Chaining and Aliasing\ncy.log('Command Chaining and Control Flow');\ncy.xpath('//*[@id=\"item_4_title_link\"]/div').then($element => {\n  const productName = $element.text();\n  cy.log('Product name is: ' + productName);\n  expect(productName).to.contain('Sauce Labs Backpack');\n  cy.xpath('//*[@id=\"item_4_title_link\"]/div').as('productItem');\n  cy.get('@productItem').should('be.visible');\n});\n// Scoped Queries with .within()\ncy.get('#item_4_title_link').within(() => {\n  cy.get('.inventory_item_name').should('contain.text', 'Sauce Labs Backpack');\n});",
+              "err": {},
+              "uuid": "2946347c-d6fe-4d4a-9466-2cfe8b5a392e",
+              "parentUUID": "3d110c85-23b6-495b-8093-18e85b0c0f75",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test 2: DemoQA - Form Interaction",
+              "fullTitle": "Cypress Core Commands Test 2: DemoQA - Form Interaction",
+              "timedOut": null,
+              "duration": 13023,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demoqa.com/automation-practice-form');\ncy.wait(4000);\ncy.get('#gender-radio-1').check({\n  force: true\n});\ncy.wait(800);\ncy.get('#gender-radio-2').check({\n  force: true\n});\ncy.wait(1000);",
+              "err": {},
+              "uuid": "ce746575-d7d9-47b8-9e82-f4b872da1c2d",
+              "parentUUID": "3d110c85-23b6-495b-8093-18e85b0c0f75",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2946347c-d6fe-4d4a-9466-2cfe8b5a392e",
+            "ce746575-d7d9-47b8-9e82-f4b872da1c2d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26360,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "inlineAssets": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-18T04:31:51.630Z",
+    "end": "2025-09-18T04:32:05.810Z",
+    "duration": 14180,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c9bdc4eb-f063-4d75-8913-ef923580a7e0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\17-09\\saucedemo.cy.js",
+      "file": "cypress\\e2e\\17-09\\saucedemo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "72a3265c-5a0d-4518-9e1d-4d170a93efc7",
+          "title": "Sauce Demo Spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "saucedemo",
+              "fullTitle": "Sauce Demo Spec saucedemo",
+              "timedOut": null,
+              "duration": 10126,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login\ncy.wait(800);\ncy.screenshot('login'); //respective script line to capture the screenshot named login.png\ncy.get('[data-test=\"username\"]').clear().type('standard_user').should('have.value', 'standard_user');\ncy.get('[data-test=\"password\"]').clear().type('secret_sauce');\ncy.wait(500); // Wait before clicking login\ncy.get('[data-test=\"login-button\"]').click();\ncy.wait(1000); // Wait for inventory page to load\n// Verify item exists\ncy.get('#add-to-cart-sauce-labs-backpack').should('exist');\ncy.wait(500);\n// Burger menu visibility toggle\ncy.get('.bm-menu-wrap').should('exist');\ncy.get('.bm-menu-wrap').should('not.be.visible');\ncy.wait(500);\ncy.get('.bm-burger-button').click();\ncy.wait(500);\ncy.get('.bm-menu-wrap').should('be.visible');\n// Text content checks\ncy.get('.app_logo').should('have.text', 'Swag Labs');\ncy.xpath('//*[@id=\"item_4_title_link\"]/div').should('include.text', 'Sauce Labs');\ncy.get('.app_logo').should('not.have.text', 'Swag Labs Backpack');\ncy.xpath('//*[@id=\"item_0_title_link\"]/div').should('contain', 'Bike Light');\ncy.xpath('//*[@id=\"inventory_container\"]/div/div[2]/div[2]/div[2]/div').invoke('text').should('match', /^\\$\\d+\\.\\d{2}$/); // Regex check for price format\n// Attribute checks\ncy.get('#item_4_title_link').should('have.attr', 'href', '#');\ncy.get('#item_4_title_link').should('not.have.attr', 'target');\n// CSS class checks\ncy.get('[data-test=\"inventory-container\"]').should('have.class', 'inventory_container');\ncy.get('[data-test=\"inventory-container\"]').should('not.have.class', 'inactive');\n// Length checks \ncy.get('.app_logo').should('have.length', 1);\ncy.get('.app_logo').should('have.length.greaterThan', 0);\n// Chained assertions\ncy.get('#add-to-cart-sauce-labs-backpack').should('be.visible').and('have.text', 'Add to cart').and('not.have.class', 'disabled').click();\n//clicking on the cart icon (navigation and control)\ncy.get('.shopping_cart_badge').click();\ncy.go('back');\ncy.wait(1000);\ncy.viewport(1200, 800);\ncy.viewport(800, 500);\n// Asserting against a function\ncy.get('.inventory_item_name').should($list => {\n  console.log($list.length);\n  expect($list).to.have.length(6);\n  expect($list.first()).to.contain('Sauce Labs Backpack');\n});\n// URL checks\ncy.url().should('include', '/inventory.html');\ncy.url().should('eq', 'https://www.saucedemo.com/inventory.html');",
+              "err": {},
+              "uuid": "e7193824-ae96-4ece-8800-394e944da769",
+              "parentUUID": "72a3265c-5a0d-4518-9e1d-4d170a93efc7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e7193824-ae96-4ece-8800-394e944da769"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10126,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "OrangeHRM Test Report",
+        "inlineAssets": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

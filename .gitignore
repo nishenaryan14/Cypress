@@ -1,0 +1,4 @@
+node_modules/
+cypress-15.2.0-win64.zip
+cypress-15.2.0-win64/
+package-lock.json
